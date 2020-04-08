@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}UserApp!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('resources/css/bootstrap.min.css') }}" />      
+    </head>
+    <body>
+        <div class="container">
+            <div class="d-flex align-items-center p-3 my-3 rounded shadow-lg">
+                {% if update_id != 0 %}
+                    <h3>Update User Details</h3>
+                {% else %}
+                    <h3>Create New User</h3>
+                {% endif %}
+            </div>
+
+            <div class="my-3 p-3 bg-white rounded shadow-sm"> 
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"> <a href="{{ path('users_index')}}">Users</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> <a href="{{ path('user_create')}}" class=" pull-right">Create New User</a></li>
+                       
+                    </ol>
+                </nav>
+                <div class="row">  
+                    <div class="col-md-12"> 
+                        <div class="col-md-6"> 
+                            {{ form(form) }}
+                        </div>
+                        <div class="col-md-6"> 
+                            <a href="{{ path('users_index')}}" class="btn btn-lg btn-danger pull-right">Cancel</a>
+                       </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </body>
+</html>
